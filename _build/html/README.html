@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Project Summary &#8212; prg1 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="prg1 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Visualizations" href="visualization.html" />
+    <link rel="prev" title="Welcome to prg1’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="project-summary">
+<h1>Project Summary<a class="headerlink" href="#project-summary" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<p>The dataset used in this project is a kaggle dataset called the imdb-5000-movie-dataset. This dataset contains over 5000 records of randomly selected movies from imdb, containing 28 attributes of these records.</p>
+<p>This project is cleaning, analysing and visualizing the dataset. The dataset is cleaned according to the required fields for analysis &amp; visualization only.</p>
+<p>The link to this dataset is: <a class="reference external" href="https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset">https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset</a></p>
+<p>The dataset has just one CSV file, called &#8216;movie_metadata.csv&#8217;</p>
+</div>
+<div class="section" id="fetchdata-py">
+<h2>fetchdata.py<a class="headerlink" href="#fetchdata-py" title="Permalink to this headline">¶</a></h2>
+<p>The dataset already existed in a CSV file. This python code (fetchdata.py) just reads all the tuples of the CSV file, segregates it and saves the entire information in 2 new files (data-line.csv &amp; data-hist.csv). The important cleaning of the data is being taken care by linechart.py and histogram.py</p>
+</div>
+<div class="section" id="linechart-py-histogram-py">
+<h2>linechart.py &amp; histogram.py<a class="headerlink" href="#linechart-py-histogram-py" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first"><strong>Input</strong></p>
+<p>Takes the respective CSV files as input.</p>
+<blockquote>
+<div><p>1.1 Before accessing the file it checks for the existence of the CSV files</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Cleaning</strong></p>
+<p>Selects the required columns, and cleans data accordingly. (Calling &#8216;clean&#8217; function)</p>
+<blockquote>
+<div><p>2.1 Selecting required information (columns) of all the rows led to buggy data in some rows. This happened because of existence of &#8216;,&#8217; in the data, and the row information is being split by &#8216;,&#8217; which causes the columns to shift</p>
+<p>2.2 The column inputs of every row are checked logically, before the row is added to the clean data</p>
+<p>2.3 This &#8216;clean&#8217; function returns a list of lists and the count of the rows before cleaning.</p>
+<p>2.4 The program displays the number of buggy rows deleted after cleaning, in both the programs.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Analysis</strong></p>
+<p>After this, both the files have different ways of analysing the data.</p>
+<blockquote>
+<div><ul class="simple">
+<li>linechart.py is cleaning for &#8216;director_name&#8217;, &#8216;genres&#8217;, &#8216;title_year&#8217;, &#8216;imdb_score&#8217; and analysing count of movie releases from 1916 to 2016, which is the oldest and the latest year of movie releases in the data.</li>
+<li>histogram.py is cleaning for &#8216;title_year&#8217;, &#8216;num_critic_for_reviews&#8217;, &#8216;num_user_for_reviews&#8217;, &#8216;director_facebook_likes&#8217; and analysing the frequency of number of critic reviews, number of user reviews and number of facebook likes for director.</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="4">
+<li><p class="first"><strong>Visualization</strong></p>
+<p>The plotting of linechart is by matplotlib.pyplot.plot and plotting of histogram is by matplotlib.pyplot.hist</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Visualization Files generated by linechart.py:</p>
+<blockquote>
+<div><p>linechart.png (Number of movie releases / Per Year)</p>
+<img alt="_images/linechart.png" src="_images/linechart.png" />
+<p>linechart1.png (Number of movie releases / Per 4 Years)</p>
+<img alt="_images/linechart1.png" src="_images/linechart1.png" />
+<p>linechart2.png (Number of movie releases / Per 5 Years)</p>
+<img alt="_images/linechart2.png" src="_images/linechart2.png" />
+<p>linechart3.png (Number of movie releases / Per 10 Years)</p>
+<img alt="_images/linechart3.png" src="_images/linechart3.png" />
+<p>linechart4.png (Number of movie releases / Per 20 Years)</p>
+<img alt="_images/linechart4.png" src="_images/linechart4.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Visualization Files generated by histogram.py:</p>
+<blockquote>
+<div><p>histogram.png (Frequency / Number of Critic Reviews)</p>
+<img alt="_images/histogram.png" src="_images/histogram.png" />
+<p>histogram1.png (Frequency / Number of User Reviews)</p>
+<img alt="_images/histogram1.png" src="_images/histogram1.png" />
+<p>histogram2.png (Frequency / Number of Director Facebook Likes)</p>
+<img alt="_images/histogram2.png" src="_images/histogram2.png" />
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Project Summary</a><ul>
+<li><a class="reference internal" href="#dataset">Dataset</a></li>
+<li><a class="reference internal" href="#fetchdata-py">fetchdata.py</a></li>
+<li><a class="reference internal" href="#linechart-py-histogram-py">linechart.py &amp; histogram.py</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to prg1&#8217;s documentation!</a></li>
+      <li>Next: <a href="visualization.html" title="next chapter">Visualizations</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/README.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Snehil Vishwakarma.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/README.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
